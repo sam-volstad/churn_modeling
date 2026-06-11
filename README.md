@@ -27,6 +27,8 @@ Machine learning project using the IBM Telco Customer Churn dataset.
 - PCA
 - K-Means clustering
 - Permutation feature importance
+- ROC curve visualization
+
 
 ## Dataset
 
@@ -34,8 +36,6 @@ Telco Customer Churn Dataset:
 https://www.kaggle.com/datasets/blastchar/telco-customer-churn
 
 ## Future Work
-
 - Hyperparameter tuning
-- ROC curve visualization
 - Cross-validation
-- Cluster-specific models
+- Additional Cluster Analysis

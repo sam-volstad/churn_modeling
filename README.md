@@ -1,7 +1,6 @@
 # Telco Customer Churn Analysis
 
-End-to-end machine learning project using the IBM Telco Customer Churn dataset to predict customer churn, compare classification models, and uncover key behavioral drivers of churn through clustering and feature importance analysis.
-
+End-to-end machine learning project using the IBM Telco Customer Churn dataset to predict customer churn, compare classification models, identify key churn drivers, and segment customers through clustering and feature importance analysis.
 ---
 
 ## Objectives
@@ -30,7 +29,7 @@ https://www.kaggle.com/datasets/blastchar/telco-customer-churn
 
 ---
 
-## Models Tested
+## Modeling Approaches
 
 - Logistic Regression (scaled pipeline baseline)
 - Random Forest
@@ -66,21 +65,56 @@ https://www.kaggle.com/datasets/blastchar/telco-customer-churn
 
 ---
 
+## Results
+
+| Model | Accuracy | Precision | Recall | F1 Score | ROC-AUC | AP Score |
+|---------|---------:|---------:|---------:|---------:|---------:|---------:|
+| Logistic Regression | 0.804 | 0.658 | 0.547 | 0.597 | **0.844** | **0.653** |
+| Random Forest | 0.797 | 0.691 | 0.426 | 0.527 | 0.842 | 0.652 |
+| XGBoost | 0.795 | 0.676 | 0.442 | 0.534 | 0.837 | 0.650 |
+
+*Metrics reported using stratified 5-fold cross-validation. ROC-AUC standard deviation ranged from 0.009–0.010 across models, indicating stable performance across folds.*
+
+
+Logistic Regression delivered the strongest overall performance while maintaining full model interpretability, making it the preferred model for this dataset.
+
+---
+
 ## Key Findings
 
-- Logistic Regression performed competitively with more complex models while remaining highly interpretable
-- Clustering revealed distinct customer segments with significantly different churn behavior and revenue contribution
+- Logistic Regression achieved the highest ROC-AUC (0.844) and Average Precision Score (0.653) among all tested models while remaining the most interpretable. 
+- Random Forest achieved the highest precision (0.691), but at the expense of substantially lower recall, highlighting the trade-off between identifying churners and minimizing false positives. 
+- More complex ensemble methods (Random Forest and XGBoost) provided limited performance improvement over Logistic Regression, suggesting the underlying churn relationships are largely captured by a linear decision boundary. 
+- Customer churn was strongly associated with contract structure, internet service type, and customer lifecycle indicators. 
+- Customer segmentation identified distinct groups with materially different churn rates, tenure profiles, and revenue contribution. 
+- ROC-AUC standard deviation remained below 0.01 across all models, indicating stable performance across cross-validation folds.
 
 ---
 
 ## Visualizations
 
-- Elbow + silhouette plots for cluster selection
-- PCA-based cluster visualization
-- ROC curves comparing model performance
-- Precision-recall curves
-- Feature importance heatmaps
-- Cluster-level business KPI breakdowns
+### Cluster Selection
+
+![Elbow and Silhouette Analysis](churn_images/Elb_Sil.png)
+
+### PCA Cluster Visualization
+
+![PCA Cluster Visualization](churn_images/PCA_Clust.png)
+
+### Model Performance
+
+![ROC-AUC Comparison](churn_images/ROC_AUC.png)
+
+![Precision-Recall Comparison](churn_images/Precision-Recall_Curve.png)
+
+### Explainability
+
+![Permutation Importance Heatmap](churn_images/Feature_Importance_Heatmap.png)
+
+![SHAP Feature Importance](churn_images/SHAP_Bar.png)
+
+![SHAP Beeswarm Plot](churn_images/SHAP_Beeswarm.png)
+
 
 ---
 
@@ -88,7 +122,6 @@ https://www.kaggle.com/datasets/blastchar/telco-customer-churn
 
 - Hyperparameter tuning (especially XGBoost depth/regularization)
 - Stability testing of clustering assignments
-- More rigorous validation of cluster utility in supervised models
 - Feature interaction analysis (beyond permutation importance)
 
 ---
@@ -100,6 +133,7 @@ https://www.kaggle.com/datasets/blastchar/telco-customer-churn
 - XGBoost
 - Plotly / Matplotlib
 - KaggleHub
+- Shap
 
 ---
 

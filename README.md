@@ -84,7 +84,7 @@ Logistic Regression delivered the strongest overall performance while maintainin
 
 - Logistic Regression achieved the highest ROC-AUC (0.844) and Average Precision Score (0.653) among all tested models while remaining the most interpretable. 
 - Random Forest achieved the highest precision (0.691), but at the expense of substantially lower recall, highlighting the trade-off between identifying churners and minimizing false positives. 
-- More complex ensemble methods (Random Forest and XGBoost) provided limited performance improvement over Logistic Regression, suggesting the underlying churn relationships are largely captured by a linear decision boundary. 
+- More complex ensemble methods (Random Forest and XGBoost) did not outperform Logistic Regression despite their additional complexity.
 - Customer churn was strongly associated with contract structure, internet service type, and customer lifecycle indicators. 
 - Customer segmentation identified distinct groups with materially different churn rates, tenure profiles, and revenue contribution. 
 - ROC-AUC standard deviation remained below 0.01 across all models, indicating stable performance across cross-validation folds.

@@ -69,7 +69,6 @@ https://www.kaggle.com/datasets/blastchar/telco-customer-churn
 ## Key Findings
 
 - Logistic Regression performed competitively with more complex models while remaining highly interpretable
-- XGBoost and Random Forest provided marginal gains in certain metrics but reduced interpretability
 - Clustering revealed distinct customer segments with significantly different churn behavior and revenue contribution
 
 ---

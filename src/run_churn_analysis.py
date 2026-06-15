@@ -35,6 +35,7 @@ from typing import Dict, List, Tuple
 
 import kagglehub
 import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
 import numpy as np
 import pandas as pd
 import plotly.express as px
@@ -77,7 +78,7 @@ def ensure_output_dirs(
 
 
 def save_matplotlib_figure(
-    fig: plt.Figure,
+    fig: Figure
     output_path: Path,
     readme_image_path: Path | None = None,
 ) -> None:
